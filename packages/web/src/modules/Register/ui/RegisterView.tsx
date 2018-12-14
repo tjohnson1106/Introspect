@@ -13,19 +13,23 @@ interface FormValues {
 }
 
 interface Props {
-  submit: (values: FormValues) => Promise<FormikErrors<FormValues>>;
+  submit: (values: FormValues) => Promise<FormikErrors<FormValues> | null>;
 }
 
 export class RView extends PureComponent<FormikProps<FormValues> & Props> {
   render() {
+    const { values, handleSubmit, handleChange, handleBlur } = this.props;
     return (
-      <div style={styles.root}>
+      <form style={styles.root} onSubmit={handleSubmit}>
         <div style={styles.formWrapper}>
           <FormItem>
             <Input
               name="email"
               prefix={<Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />}
               placeholder="Email"
+              value={values.email}
+              onChange={handleChange}
+              onBlur={handleBlur}
             />
           </FormItem>
           <FormItem>
@@ -34,6 +38,9 @@ export class RView extends PureComponent<FormikProps<FormValues> & Props> {
               prefix={<Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />}
               type="password"
               placeholder="Password"
+              value={values.password}
+              onChange={handleChange}
+              onBlur={handleBlur}
             />
           </FormItem>
           <FormItem>
@@ -52,7 +59,7 @@ export class RView extends PureComponent<FormikProps<FormValues> & Props> {
             Or <a href="">login now!</a>
           </FormItem>
         </div>
-      </div>
+      </form>
     );
   }
 }
@@ -66,5 +73,9 @@ export const RegisterView = withFormik<Props, FormValues>({
   }),
   handleSubmit: async (values, { props, setErrors, setSubmitting }) => {
     const errors = await props.submit(values);
+
+    if (errors) {
+      setErrors(errors);
+    }
   }
 })(RView);
