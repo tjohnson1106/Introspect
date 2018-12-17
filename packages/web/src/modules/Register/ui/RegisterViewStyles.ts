@@ -1,6 +1,8 @@
 export const styles = {
   root: {
-    display: "flex"
+    display: "flex",
+    marginTop: 15,
+    color: "007EFF"
   },
   formWrapper: {
     width: 400,

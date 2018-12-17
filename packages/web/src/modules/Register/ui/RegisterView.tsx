@@ -1,6 +1,6 @@
 import * as React from "react";
 import PureComponent = React.PureComponent;
-import { withFormik, FormikErrors, FormikProps, ErrorMessage } from "formik";
+import { withFormik, FormikErrors, FormikProps } from "formik";
 import * as yup from "yup";
 import { Form, Button, Input, Icon } from "antd";
 
@@ -27,11 +27,13 @@ export class RView extends PureComponent<FormikProps<FormValues> & Props> {
       touched,
       errors
     } = this.props;
+    console.log("errors", errors, "errors");
     return (
       <form style={styles.root} onSubmit={handleSubmit}>
         <div style={styles.formWrapper}>
           <FormItem
-            help={touched.email && errors.email ? ErrorMessage.email : ""}
+            help={touched.email && errors.email ? errors.email : ""}
+            validateStatus={touched.email && errors.email ? "error" : undefined}
           >
             <Input
               name="email"
@@ -43,9 +45,7 @@ export class RView extends PureComponent<FormikProps<FormValues> & Props> {
             />
           </FormItem>
           <FormItem
-            help={
-              touched.password && errors.password ? ErrorMessage.password : ""
-            }
+            help={touched.password && errors.password ? errors.password : ""}
           >
             <Input
               name="password"
@@ -82,18 +82,18 @@ const emailNotLongEnough = "email must be at least three characters";
 const passwordNotLongEnough = "password must be at least three characters";
 const invalidEmail = "email must be a valid email";
 
-const registerPasswordValidation = yup
-  .string()
-  .min(3, passwordNotLongEnough)
-  .max(255);
-
 const validationSchema = yup.object().shape({
   email: yup
     .string()
     .min(3, emailNotLongEnough)
     .max(255)
-    .email(invalidEmail),
-  password: registerPasswordValidation
+    .email(invalidEmail)
+    .required(),
+  password: yup
+    .string()
+    .min(3, passwordNotLongEnough)
+    .max(255)
+    .required()
 });
 
 // specify default values
