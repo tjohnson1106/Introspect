@@ -1,11 +1,18 @@
 import * as React from "react";
 import PureComponent = React.PureComponent;
-import { withFormik, FormikErrors, FormikProps } from "formik";
-import { Form, Button, Input, Icon } from "antd";
+import {
+  withFormik,
+  FormikErrors,
+  FormikProps,
+  Field,
+  Form as FeatureForm
+} from "formik";
+import { Form, Button, Icon } from "antd";
 
 import { validUserSchema } from "@introspect/common";
 
 import { styles } from "./RegisterViewStyles";
+import InputField from "../../shared/inputField";
 
 const FormItem = Form.Item;
 
@@ -20,44 +27,23 @@ interface Props {
 
 export class RView extends PureComponent<FormikProps<FormValues> & Props> {
   render() {
-    const {
-      values,
-      handleSubmit,
-      handleChange,
-      handleBlur,
-      touched,
-      errors
-    } = this.props;
-    console.log("errors", errors, "errors");
+    // remember to pass unique items to Field
     return (
-      <form style={styles.root} onSubmit={handleSubmit}>
+      <FeatureForm style={styles.root}>
         <div style={styles.formWrapper}>
-          <FormItem
-            help={touched.email && errors.email ? errors.email : ""}
-            validateStatus={touched.email && errors.email ? "error" : undefined}
-          >
-            <Input
-              name="email"
-              prefix={<Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />}
-              placeholder="Email"
-              value={values.email}
-              onChange={handleChange}
-              onBlur={handleBlur}
-            />
-          </FormItem>
-          <FormItem
-            help={touched.password && errors.password ? errors.password : ""}
-          >
-            <Input
-              name="password"
-              prefix={<Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />}
-              type="password"
-              placeholder="Password"
-              value={values.password}
-              onChange={handleChange}
-              onBlur={handleBlur}
-            />
-          </FormItem>
+          <Field
+            name="email"
+            prefix={<Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />}
+            placeholder="Email"
+            component={InputField}
+          />
+          <Field
+            name="password"
+            type="password"
+            prefix={<Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />}
+            placeholder="Password"
+            component={InputField}
+          />
           <FormItem>
             <a className="login-form-forgot" href="">
               Forgot password
@@ -74,7 +60,7 @@ export class RView extends PureComponent<FormikProps<FormValues> & Props> {
             Or <a href="">login now!</a>
           </FormItem>
         </div>
-      </form>
+      </FeatureForm>
     );
   }
 }
