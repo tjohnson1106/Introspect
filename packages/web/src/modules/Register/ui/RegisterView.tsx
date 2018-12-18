@@ -1,6 +1,6 @@
 import * as React from "react";
 import PureComponent = React.PureComponent;
-import { withFormik, FormikErrors, FormikProps } from "formik";
+import { withFormik, FormikErrors, FormikProps, Field } from "formik";
 import { Form, Button, Input, Icon } from "antd";
 
 import { validUserSchema } from "@introspect/common";
