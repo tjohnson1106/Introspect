@@ -12,11 +12,11 @@ const FormItem = Form.Item;
 // )}
 // </div>
 
-export const InputField: React.SFC<FieldProps<any> & {}> = ({
-  field,
-  form: { touched, errors },
-  ...props
-}) => {
+export const InputField: React.SFC<
+  FieldProps<any> & {
+    prefix: React.ReactNode;
+  }
+> = ({ field, form: { touched, errors }, ...props }) => {
   const errorMessage = touched[field.name] && errors[field.name];
   return (
     <FormItem
