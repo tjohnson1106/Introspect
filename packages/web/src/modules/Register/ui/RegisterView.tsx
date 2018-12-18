@@ -3,7 +3,7 @@ import PureComponent = React.PureComponent;
 import { withFormik, FormikErrors, FormikProps } from "formik";
 import { Form, Button, Input, Icon } from "antd";
 
-import { validationSchema } from "@introspect/common";
+import { validUserSchema } from "@introspect/common";
 
 import { styles } from "./RegisterViewStyles";
 
@@ -82,12 +82,12 @@ export class RView extends PureComponent<FormikProps<FormValues> & Props> {
 // specify default values
 
 export const RegisterView = withFormik<Props, FormValues>({
-  validationSchema,
+  validationSchema: validUserSchema,
   mapPropsToValues: () => ({
     email: "",
     password: ""
   }),
-  handleSubmit: async (values, { props, setErrors, setSubmitting }) => {
+  handleSubmit: async (values, { props, setErrors }) => {
     const errors = await props.submit(values);
 
     if (errors) {

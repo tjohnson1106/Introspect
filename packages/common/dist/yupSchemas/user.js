@@ -9,7 +9,7 @@ exports.registerPasswordValidation = yup
     .min(3, exports.passwordNotLongEnough)
     .max(255)
     .required();
-exports.validationSchema = yup.object().shape({
+exports.validUserSchema = yup.object().shape({
     email: yup
         .string()
         .min(3, exports.emailNotLongEnough)

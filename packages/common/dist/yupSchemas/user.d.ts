@@ -3,4 +3,4 @@ export declare const emailNotLongEnough = "email must be at least three characte
 export declare const passwordNotLongEnough = "password must be at least three characters";
 export declare const invalidEmail = "email must be a valid email";
 export declare const registerPasswordValidation: yup.StringSchema;
-export declare const validationSchema: yup.ObjectSchema<{}>;
+export declare const validUserSchema: yup.ObjectSchema<{}>;
