@@ -1,8 +1,9 @@
 import * as React from "react";
 import PureComponent = React.PureComponent;
 import { withFormik, FormikErrors, FormikProps } from "formik";
-import * as yup from "yup";
 import { Form, Button, Input, Icon } from "antd";
+
+import { validationSchema } from "@introspect/common";
 
 import { styles } from "./RegisterViewStyles";
 
@@ -77,24 +78,6 @@ export class RView extends PureComponent<FormikProps<FormValues> & Props> {
     );
   }
 }
-
-const emailNotLongEnough = "email must be at least three characters";
-const passwordNotLongEnough = "password must be at least three characters";
-const invalidEmail = "email must be a valid email";
-
-const validationSchema = yup.object().shape({
-  email: yup
-    .string()
-    .min(3, emailNotLongEnough)
-    .max(255)
-    .email(invalidEmail)
-    .required(),
-  password: yup
-    .string()
-    .min(3, passwordNotLongEnough)
-    .max(255)
-    .required()
-});
 
 // specify default values
 

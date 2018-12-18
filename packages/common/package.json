@@ -1,0 +1,21 @@
+{
+  "name": "@introspect/common",
+  "version": "1.0.0",
+  "description": "Introspect project",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "author": "Santa Clause",
+  "license": "MIT",
+  "scripts": {
+    "build": "rm -rf ./dist && tsc"
+  },
+  "devDependencies": {
+    "@types/yup": "^0.26.3",
+    "tslint": "^5.12.0",
+    "tslint-config-prettier": "^1.17.0",
+    "typescript": "^3.2.2"
+  },
+  "dependencies": {
+    "yup": "^0.26.6"
+  }
+}
