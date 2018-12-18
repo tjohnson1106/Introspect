@@ -1,7 +1,13 @@
 import * as React from "react";
 import PureComponent = React.PureComponent;
-import { withFormik, FormikErrors, FormikProps, Field } from "formik";
-import { Form, Button, Input, Icon } from "antd";
+import {
+  withFormik,
+  FormikErrors,
+  FormikProps,
+  Field,
+  Form as FeatureForm
+} from "formik";
+import { Form, Button, Icon } from "antd";
 
 import { validUserSchema } from "@introspect/common";
 
@@ -21,11 +27,9 @@ interface Props {
 
 export class RView extends PureComponent<FormikProps<FormValues> & Props> {
   render() {
-    const { handleSubmit, touched, errors } = this.props;
-    console.log("errors", errors, "errors");
     // remember to pass unique items to Field
     return (
-      <form style={styles.root} onSubmit={handleSubmit}>
+      <FeatureForm style={styles.root}>
         <div style={styles.formWrapper}>
           <Field
             name="email"
@@ -56,7 +60,7 @@ export class RView extends PureComponent<FormikProps<FormValues> & Props> {
             Or <a href="">login now!</a>
           </FormItem>
         </div>
-      </form>
+      </FeatureForm>
     );
   }
 }
