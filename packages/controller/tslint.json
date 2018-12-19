@@ -1,0 +1,14 @@
+{
+  "extends": ["../../tslint.json", "tslint-react"],
+  "linterOptions": {
+    "exclude": ["config/**/*.js", "node_modules/**/*.ts"]
+  },
+  "rules": {
+    "rules": {
+      "jsx-no-multiline-js": 0,
+      "jsx-key": 0,
+      "jsx-no-lambda": 0,
+      "typedef-whitespace": 0
+    }
+  }
+}

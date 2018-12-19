@@ -1,0 +1,24 @@
+{
+  "name": "@introspect/controller",
+  "version": "1.0.0",
+  "description": "Introspect project",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "build": "rimraf ./dist && tsc"
+  },
+  "dependencies": {
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.18",
+    "@types/react": "^16.7.17",
+    "@types/react-dom": "^16.0.11",
+    "rimraf": "^2.6.2",
+    "tslint": "^5.12.0",
+    "tslint-config-prettier": "^1.17.0",
+    "typescript": "^3.2.2"
+  }
+}
