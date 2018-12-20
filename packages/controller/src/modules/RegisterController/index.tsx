@@ -2,6 +2,7 @@ import * as React from "react";
 import PureComponent = React.PureComponent;
 import { graphql, ChildMutateProps } from "react-apollo";
 import gql from "graphql-tag"
+import { RegisterMutation, RegisterMutationVariables } from "./__generated__/RegisterMutation";
 
 // no platform specific code
 
@@ -10,8 +11,8 @@ interface Props {
 }
 
 // specify expected types for variables
-class RController extends PureComponent<ChildMutateProps<Props, any, any>> {
-  submit = async (values: any) => {
+class RController extends PureComponent<ChildMutateProps<Props, RegisterMutation, RegisterMutationVariables>> {
+  submit = async (values: RegisterMutationVariables) => {
 
     console.log("==", values, "==");
     const response = await this.props.mutate({
@@ -27,7 +28,7 @@ class RController extends PureComponent<ChildMutateProps<Props, any, any>> {
 }
 
 const registerMutation = gql`
-mutation($email: String!, $password: String!) {
+mutation RegisterMutation($email: String!, $password: String!) {
   register(email: $email, $password: password) {
     path
     message
