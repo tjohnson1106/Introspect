@@ -7,7 +7,7 @@ import { RegisterMutation, RegisterMutationVariables } from "./__generated__/Reg
 // no platform specific code
 
 interface Props {
-  children: (data: { submit: (values: any) => Promise<null> }) => JSX.Element | null;
+  children: (data: { submit: (values: RegisterMutationVariables) => Promise<null> }) => JSX.Element | null;
 }
 
 // specify expected types for variables
@@ -36,4 +36,4 @@ mutation RegisterMutation($email: String!, $password: String!) {
 }
 `
 
-export const RegisterController = graphql(registerMutation)(RController)
+export const RegisterController = graphql<Props, RegisterMutation, RegisterMutationVariables>(registerMutation)(RController)
