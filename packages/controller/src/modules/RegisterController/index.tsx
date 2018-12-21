@@ -18,7 +18,7 @@ class RController extends PureComponent<ChildMutateProps<Props, RegisterMutation
     const response = await this.props.mutate({
       variables: values
     });
-  console.log("response", response)
+  console.log("response: ", response)
     return null;
   };
 
