@@ -1,0 +1,8 @@
+{
+    "emmet.includeLanguages": {
+
+        "TypeScipt React": "javascriptreact",
+        "javascript": "javascriptreact"
+    },
+    "prettier.printWidth": 75
+}

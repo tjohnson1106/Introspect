@@ -1,12 +1,9 @@
 import * as React from "react";
-import PureComponent = React.PureComponent;
+import { RegisterMutationVariables } from "./__generated__/RegisterMutation";
 interface Props {
     children: (data: {
-        submit: (values: any) => Promise<null>;
+        submit: (values: RegisterMutationVariables) => Promise<null>;
     }) => JSX.Element | null;
 }
-export declare class RegisterController extends PureComponent<Props> {
-    submit: (values: any) => Promise<null>;
-    render(): JSX.Element | null;
-}
+export declare const RegisterController: React.ComponentClass<Props, any>;
 export {};
