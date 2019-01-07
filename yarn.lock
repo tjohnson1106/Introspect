@@ -786,6 +786,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-native-elements@^0.18.0":
+  version "0.18.0"
+  resolved "https://registry.yarnpkg.com/@types/react-native-elements/-/react-native-elements-0.18.0.tgz#81cf92d75a5d9ed73599761da37bd2b05b107a91"
+  integrity sha512-Tt0aq6HlN31Wexica9MwTwxnt46fLyx6yzMFJWPx2hqACrvBZfFTlwCoWMRa6ArR/kX3XJbAe6vKEBuZ08Zvtw==
+  dependencies:
+    react-native-elements "*"
+
 "@types/react-native@*":
   version "0.57.24"
   resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.57.24.tgz#10c62d99eac4b0a6a52e6fe3ffe66d03a71bef92"
@@ -805,6 +812,15 @@
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/@types/react-router-dom/-/react-router-dom-4.3.1.tgz#71fe2918f8f60474a891520def40a63997dafe04"
   integrity sha512-GbztJAScOmQ/7RsQfO4cd55RuH1W4g6V1gDW3j4riLlt+8yxYLqqsiMzmyuXBLzdFmDtX/uU2Bpcm0cmudv44A==
+  dependencies:
+    "@types/history" "*"
+    "@types/react" "*"
+    "@types/react-router" "*"
+
+"@types/react-router-native@^4.2.3":
+  version "4.2.3"
+  resolved "https://registry.yarnpkg.com/@types/react-router-native/-/react-router-native-4.2.3.tgz#6c01f94e3ccf9b6fbb97f3956140e20c6e723d74"
+  integrity sha512-KevB77IrHubIQRq1chwf4z321Win1NuS4vz3QZ2PVD0eCSZZt3v/2hU8xBWLANa9uFddpGPBJrtlZ4ngfRGyfA==
   dependencies:
     "@types/history" "*"
     "@types/react" "*"
@@ -10576,7 +10592,7 @@ react-native-branch@2.0.0-beta.3:
   resolved "https://registry.yarnpkg.com/react-native-branch/-/react-native-branch-2.0.0-beta.3.tgz#2167af86bbc9f964bd45bd5f37684e5b54965e32"
   integrity sha1-IWevhrvJ+WS9Rb1fN2hOW1SWXjI=
 
-react-native-elements@^0.19.1:
+react-native-elements@*, react-native-elements@^0.19.1:
   version "0.19.1"
   resolved "https://registry.yarnpkg.com/react-native-elements/-/react-native-elements-0.19.1.tgz#f92b69d864a150215d01f81fe3c52a9cada83e45"
   integrity sha1-+Stp2GShUCFdAfgf48UqnK2oPkU=
