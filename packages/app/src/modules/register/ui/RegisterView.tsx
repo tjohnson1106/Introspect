@@ -2,13 +2,7 @@ import * as React from "react";
 import PureComponent = React.PureComponent;
 import { View, Button } from "react-native";
 
-import {
-  withFormik,
-  FormikErrors,
-  FormikProps,
-  Field,
-  Form as FeatureForm
-} from "formik";
+import { withFormik, FormikErrors, FormikProps, Field } from "formik";
 
 import { validUserSchema } from "@introspect/common";
 
@@ -33,7 +27,7 @@ export class RView extends PureComponent<FormikProps<FormValues> & Props> {
         <Field name="email" placeholder="Email" component={InputField} />
         <Field
           name="password"
-          type="password"
+          secureTextEntry={true}
           placeholder="Password"
           component={InputField}
         />

@@ -3,17 +3,11 @@ import Component = React.Component;
 import { Input } from "react-native-elements";
 import { FieldProps } from "formik";
 
-// ant design example
-// <div>
-// <input type="text" {...field} {...props} />
-// {touched[field.name] && errors[field.name] && (
-//   <div className="error">{errors[field.name]}</div>
-// )}
-// </div>
+const _errorStyle = {
+  color: "red"
+};
 
-export class InputField extends Component<
-  FieldProps<any> & { name: string }
-> {
+export class InputField extends Component<FieldProps<any>> {
   _onChangeText = (text: string) => {
     const {
       form: { setFieldValue },
@@ -29,22 +23,15 @@ export class InputField extends Component<
       form: { touched, errors },
       ...props
     } = this.props;
-    const errorMessage = touched[field.name] && errors[field.name];
+    const _errorMessage = touched[field.name] && errors[field.name];
     return (
-      // <FormItem
-      //   help={errorMessage}
-      //   // an error should appear otherwise it's undefined
-      //   validateStatus={errorMessage ? "error" : undefined}
-      // >
-      //   <Input {...field} {...props} />
-      // </FormItem>
       <Input
-        placeholder=""
-        errorStyle={{ color: "red" }}
-        errorMessage=""
+        {...props}
+        errorStyle={_errorStyle}
         onChangeText={this._onChangeText}
+        // TODO: fix: not recognizing as string
+        errorMessage={_errorMessage as any}
         value={field.value}
-        onBlur={field.onBlur}
       />
     );
   }
