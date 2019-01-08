@@ -32,6 +32,7 @@ export class RView extends PureComponent<FormikProps<FormValues> & Props> {
             name="email"
             placeholder="Email"
             component={InputField}
+            autoCapitalize="none"
           />
           <Field
             name="password"
