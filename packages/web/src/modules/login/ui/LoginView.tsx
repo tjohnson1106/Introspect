@@ -8,12 +8,12 @@ import {
   Form as FeatureForm
 } from "formik";
 import { Form as AntForm, Icon } from "antd";
-import { Link } from "react-router-dom";
 
 import { validUserSchema } from "@introspect/common";
 
-import { styles } from "./RegisterViewStyles";
+import { styles } from "./LoginViewStyles";
 import InputField from "../../shared/inputField";
+import { Link } from "react-router-dom";
 
 const FormItem = AntForm.Item;
 
@@ -26,7 +26,7 @@ interface Props {
   submit: (values: FormValues) => Promise<FormikErrors<FormValues> | null>;
 }
 
-export class RView extends PureComponent<FormikProps<FormValues> & Props> {
+export class LView extends PureComponent<FormikProps<FormValues> & Props> {
   render() {
     // remember to pass unique items to Field
     return (
@@ -53,11 +53,10 @@ export class RView extends PureComponent<FormikProps<FormValues> & Props> {
             <a className="login-form-forgot" href="">
               Forgot password
             </a>
-            {/* login route needs to be created 010820191653 */}
-            <Link to="/login">Register</Link>
+            <Link to="/register">Login</Link>
           </FormItem>
           <FormItem>
-            Or <a href="">login now!</a>
+            Or <a href="">register now!</a>
           </FormItem>
         </div>
       </FeatureForm>
@@ -66,9 +65,9 @@ export class RView extends PureComponent<FormikProps<FormValues> & Props> {
 }
 
 // specify default values
+// remember this is server request looking for registered users
 
-export const RegisterView = withFormik<Props, FormValues>({
-  validationSchema: validUserSchema,
+export const LoginView = withFormik<Props, FormValues>({
   mapPropsToValues: () => ({
     email: "",
     password: ""
@@ -80,4 +79,4 @@ export const RegisterView = withFormik<Props, FormValues>({
       setErrors(errors);
     }
   }
-})(RView);
+})(LView);
