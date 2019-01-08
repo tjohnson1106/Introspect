@@ -7,14 +7,14 @@ import {
   Field,
   Form as FeatureForm
 } from "formik";
-import { Form, Button, Icon } from "antd";
+import { Form as AntForm, Button, Icon } from "antd";
 
 import { validUserSchema } from "@introspect/common";
 
 import { styles } from "./RegisterViewStyles";
 import InputField from "../../shared/inputField";
 
-const FormItem = Form.Item;
+const FormItem = AntForm.Item;
 
 interface FormValues {
   email: string;
@@ -33,14 +33,18 @@ export class RView extends PureComponent<FormikProps<FormValues> & Props> {
         <div style={styles.formWrapper}>
           <Field
             name="email"
-            prefix={<Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />}
+            prefix={
+              <Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />
+            }
             placeholder="Email"
             component={InputField}
           />
           <Field
             name="password"
             type="password"
-            prefix={<Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />}
+            prefix={
+              <Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />
+            }
             placeholder="Password"
             component={InputField}
           />
