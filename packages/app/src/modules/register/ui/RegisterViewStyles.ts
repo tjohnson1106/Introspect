@@ -1,10 +1,18 @@
 export const styles = {
   root: {
-    marginTop: 200,
-    color: "007EFF"
+    flex: 1,
+    display: "flex",
+    justifyContent: "center"
   },
   formWrapper: {
     width: 400,
     margin: "auto"
+  },
+  registerText: {
+    fontSize: 30,
+    marginBottom: 10
+  },
+  submitButton: {
+    marginTop: 30
   }
 };
