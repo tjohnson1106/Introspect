@@ -1,29 +1,35 @@
 import * as React from "react";
 import PureComponent = React.PureComponent;
 import { graphql, ChildMutateProps } from "react-apollo";
-import gql from "graphql-tag"
-import { RegisterMutation, RegisterMutationVariables } from "./__generated__/RegisterMutation";
+import gql from "graphql-tag";
+import {
+  RegisterMutation,
+  RegisterMutationVariables
+} from "../../schemaTypes";
 
 // no platform specific code
 
 interface Props {
-  children: (data: { submit: (values: RegisterMutationVariables) => Promise<null> }) => JSX.Element | null;
+  children: (
+    data: { submit: (values: RegisterMutationVariables) => Promise<null> }
+  ) => JSX.Element | null;
 }
 
 // specify expected types for variables
-class RController extends PureComponent<ChildMutateProps<Props, RegisterMutation, RegisterMutationVariables>> {
+class RController extends PureComponent<
+  ChildMutateProps<Props, RegisterMutation, RegisterMutationVariables>
+> {
   submit = async (values: RegisterMutationVariables) => {
-
     console.log("==", values, "==");
     const response = await this.props.mutate({
       variables: values
     });
-  console.log("response: ", response)
+    console.log("response: ", response);
     return null;
   };
 
   render() {
-    return this.props.children({ submit: this.submit })
+    return this.props.children({ submit: this.submit });
   }
 }
 
@@ -34,6 +40,10 @@ mutation RegisterMutation($email: String!, $password: String!) {
     message
   }
 }
-`
+`;
 
-export const RegisterController = graphql<Props, RegisterMutation, RegisterMutationVariables>(registerMutation)(RController)
+export const RegisterController = graphql<
+  Props,
+  RegisterMutation,
+  RegisterMutationVariables
+>(registerMutation)(RController);
