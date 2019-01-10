@@ -18,10 +18,12 @@ class LController extends PureComponent<
 > {
   submit = async (values: LoginMutationVariables) => {
     console.log("==", values, "==");
-    const response = await this.props.mutate({
+    const {
+      data: { login }
+    } = await this.props.mutate({
       variables: values
     });
-    console.log("response: ", response);
+    console.log("response: ", login);
     return null;
   };
 
@@ -31,12 +33,12 @@ class LController extends PureComponent<
 }
 
 const loginMutation = gql`
-mutation LoginMutation($email: String!, $password: String!) {
-    login (email: $email, $password: password) {
-    path
-    message
+  mutation LoginMutation($email: String!, $password: String!) {
+    login(email: $email, password: $password) {
+      path
+      message
+    }
   }
-}
 `;
 
 export const LoginController = graphql<

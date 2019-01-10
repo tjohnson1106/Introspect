@@ -35,7 +35,7 @@ class RController extends PureComponent<
 
 const registerMutation = gql`
 mutation RegisterMutation($email: String!, $password: String!) {
-  register(email: $email, $password: password) {
+  register(email: $email, password: $password) {
     path
     message
   }

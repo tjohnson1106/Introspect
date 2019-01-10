@@ -82,7 +82,7 @@ var LController = /** @class */ (function (_super) {
     };
     return LController;
 }(PureComponent));
-var loginMutation = gql(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\nmutation LoginMutation($email: String!, $password: String!) {\n    login (email: $email, $password: password) {\n    path\n    message\n  }\n}\n"], ["\nmutation LoginMutation($email: String!, $password: String!) {\n    login (email: $email, $password: password) {\n    path\n    message\n  }\n}\n"])));
+var loginMutation = gql(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  mutation LoginMutation($email: String!, $password: String!) {\n    login(email: $email, password: $password) {\n      path\n      message\n    }\n  }\n"], ["\n  mutation LoginMutation($email: String!, $password: String!) {\n    login(email: $email, password: $password) {\n      path\n      message\n    }\n  }\n"])));
 export var LoginController = graphql(loginMutation)(LController);
 var templateObject_1;
 //# sourceMappingURL=index.js.map
