@@ -54,23 +54,28 @@ import * as React from "react";
 var PureComponent = React.PureComponent;
 import { graphql } from "react-apollo";
 import gql from "graphql-tag";
+import { normalizeErrors } from "../../utils/normalizeErrors";
 // specify expected types for variables
 var LController = /** @class */ (function (_super) {
     __extends(LController, _super);
     function LController() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.submit = function (values) { return __awaiter(_this, void 0, void 0, function () {
-            var response;
+            var login;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        console.log("==", values, "==");
+                        console.log(values);
                         return [4 /*yield*/, this.props.mutate({
                                 variables: values
                             })];
                     case 1:
-                        response = _a.sent();
-                        console.log("response: ", response);
+                        login = (_a.sent()).data.login;
+                        console.log("response: ", login);
+                        if (login) {
+                            // show errors -> utils normalize errors
+                            return [2 /*return*/, normalizeErrors(login)];
+                        }
                         return [2 /*return*/, null];
                 }
             });

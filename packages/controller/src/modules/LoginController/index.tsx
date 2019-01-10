@@ -26,11 +26,13 @@ class LController extends PureComponent<
 > {
   submit = async (values: LoginMutationVariables) => {
     console.log(values);
+    // TODO: fix Property 'data' does not exist on type 'void
+    // passing as any
     const {
       data: { login }
-    } = await this.props.mutate({
+    } = (await this.props.mutate({
       variables: values
-    });
+    })) as any;
     console.log("response: ", login);
 
     if (login) {
