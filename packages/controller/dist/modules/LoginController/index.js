@@ -55,9 +55,9 @@ var PureComponent = React.PureComponent;
 import { graphql } from "react-apollo";
 import gql from "graphql-tag";
 // specify expected types for variables
-var RController = /** @class */ (function (_super) {
-    __extends(RController, _super);
-    function RController() {
+var LController = /** @class */ (function (_super) {
+    __extends(LController, _super);
+    function LController() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.submit = function (values) { return __awaiter(_this, void 0, void 0, function () {
             var response;
@@ -77,12 +77,12 @@ var RController = /** @class */ (function (_super) {
         }); };
         return _this;
     }
-    RController.prototype.render = function () {
+    LController.prototype.render = function () {
         return this.props.children({ submit: this.submit });
     };
-    return RController;
+    return LController;
 }(PureComponent));
-var registerMutation = gql(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\nmutation RegisterMutation($email: String!, $password: String!) {\n  register(email: $email, $password: password) {\n    path\n    message\n  }\n}\n"], ["\nmutation RegisterMutation($email: String!, $password: String!) {\n  register(email: $email, $password: password) {\n    path\n    message\n  }\n}\n"])));
-export var RegisterController = graphql(registerMutation)(RController);
+var loginMutation = gql(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\nmutation LoginMutation($email: String!, $password: String!) {\n    login (email: $email, $password: password) {\n    path\n    message\n  }\n}\n"], ["\nmutation LoginMutation($email: String!, $password: String!) {\n    login (email: $email, $password: password) {\n    path\n    message\n  }\n}\n"])));
+export var LoginController = graphql(loginMutation)(LController);
 var templateObject_1;
 //# sourceMappingURL=index.js.map
