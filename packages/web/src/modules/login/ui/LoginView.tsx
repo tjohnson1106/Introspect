@@ -2,7 +2,6 @@ import * as React from "react";
 import PureComponent = React.PureComponent;
 import {
   withFormik,
-  FormikErrors,
   FormikProps,
   Field,
   Form as FeatureForm
@@ -17,14 +16,25 @@ import { Link } from "react-router-dom";
 
 const FormItem = AntForm.Item;
 
+// This is too strict for promise return in controller
+// should be object key: string
 interface FormValues {
   email: string;
   password: string;
 }
 
 interface Props {
-  submit: (values: FormValues) => Promise<FormikErrors<FormValues> | null>;
+  submit: (
+    values: FormValues
+  ) => Promise<{
+    [key: string]: string;
+  } | null>;
 }
+
+// changed 011020191545 to ^
+// interface Props {
+//   submit: (values: FormValues) => Promise<FormikErrors<FormValues> | null>;
+// }
 
 export class LView extends PureComponent<FormikProps<FormValues> & Props> {
   render() {
