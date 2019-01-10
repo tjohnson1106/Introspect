@@ -9,7 +9,7 @@ import {
 } from "formik";
 import { Form as AntForm, Icon } from "antd";
 
-import { validUserSchema } from "@introspect/common";
+import { loginSchema } from "@introspect/common";
 
 import { styles } from "./LoginViewStyles";
 import InputField from "../../shared/inputField";
@@ -68,6 +68,7 @@ export class LView extends PureComponent<FormikProps<FormValues> & Props> {
 // remember this is server request looking for registered users
 
 export const LoginView = withFormik<Props, FormValues>({
+  validationSchema: loginSchema,
   mapPropsToValues: () => ({
     email: "",
     password: ""
