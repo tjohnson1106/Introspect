@@ -70,7 +70,7 @@ var RController = /** @class */ (function (_super) {
                             })];
                     case 1:
                         response = _a.sent();
-                        console.log("response", response);
+                        console.log("response: ", response);
                         return [2 /*return*/, null];
                 }
             });
@@ -82,7 +82,7 @@ var RController = /** @class */ (function (_super) {
     };
     return RController;
 }(PureComponent));
-var registerMutation = gql(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\nmutation RegisterMutation($email: String!, $password: String!) {\n  register(email: $email, $password: password) {\n    path\n    message\n  }\n}\n"], ["\nmutation RegisterMutation($email: String!, $password: String!) {\n  register(email: $email, $password: password) {\n    path\n    message\n  }\n}\n"])));
+var registerMutation = gql(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\nmutation RegisterMutation($email: String!, $password: String!) {\n  register(email: $email, password: $password) {\n    path\n    message\n  }\n}\n"], ["\nmutation RegisterMutation($email: String!, $password: String!) {\n  register(email: $email, password: $password) {\n    path\n    message\n  }\n}\n"])));
 export var RegisterController = graphql(registerMutation)(RController);
 var templateObject_1;
 //# sourceMappingURL=index.js.map

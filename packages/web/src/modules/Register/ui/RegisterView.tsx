@@ -7,12 +7,13 @@ import {
   Field,
   Form as FeatureForm
 } from "formik";
-import { Form as AntForm, Button, Icon } from "antd";
+import { Form as AntForm, Icon, Button } from "antd";
+import { Link } from "react-router-dom";
 
 import { validUserSchema } from "@introspect/common";
 
 import { styles } from "./RegisterViewStyles";
-import InputField from "../../shared/inputField";
+import { InputField } from "../../shared/inputField";
 
 const FormItem = AntForm.Item;
 
@@ -52,6 +53,8 @@ export class RView extends PureComponent<FormikProps<FormValues> & Props> {
             <a className="login-form-forgot" href="">
               Forgot password
             </a>
+          </FormItem>
+          <FormItem>
             <Button
               type="primary"
               htmlType="submit"
@@ -60,8 +63,9 @@ export class RView extends PureComponent<FormikProps<FormValues> & Props> {
               Register
             </Button>
           </FormItem>
+
           <FormItem>
-            Or <a href="">login now!</a>
+            Or <Link to="/login">login now!</Link>
           </FormItem>
         </div>
       </FeatureForm>
