@@ -6,11 +6,17 @@ import {
 } from "react-router-native";
 
 import { RegisterConnector } from "../modules/register/RegisterConnector";
+import { LoginConnector } from "../modules/login/LoginConnector";
 
 export const Routes = () => (
-  <Router>
+  <Router initialEntries={["/login"]}>
     <Switch>
-      <Route exact={true} path="/" component={RegisterConnector} />
+      <Route
+        exact={true}
+        path="/register "
+        component={RegisterConnector}
+      />
+      <Route exact={true} path="/login" component={LoginConnector} />
     </Switch>
   </Router>
 );
