@@ -38,6 +38,7 @@ export const resolvers: ResolverMap = {
       const user = User.create({
         email,
         password
+        // confirmed: true
       });
 
       await user.save();
