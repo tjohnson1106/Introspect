@@ -6,7 +6,7 @@ import {
   Field,
   Form as FeatureForm
 } from "formik";
-import { Form as AntForm, Icon } from "antd";
+import { Form as AntForm, Icon, Button } from "antd";
 
 import { loginSchema } from "@introspect/common";
 
@@ -63,10 +63,19 @@ export class LView extends PureComponent<FormikProps<FormValues> & Props> {
             <a className="login-form-forgot" href="">
               Forgot password
             </a>
-            <Link to="/register">Login</Link>
           </FormItem>
           <FormItem>
-            Or <a href="">register now!</a>
+            <Button
+              type="primary"
+              htmlType="submit"
+              className="login-form-button"
+            >
+              Login
+            </Button>
+          </FormItem>
+
+          <FormItem>
+            <Link to="/register">Register</Link>
           </FormItem>
         </div>
       </FeatureForm>
@@ -79,6 +88,8 @@ export class LView extends PureComponent<FormikProps<FormValues> & Props> {
 
 export const LoginView = withFormik<Props, FormValues>({
   validationSchema: loginSchema,
+  validateOnChange: false,
+  validateOnBlur: false,
   mapPropsToValues: () => ({
     email: "",
     password: ""
